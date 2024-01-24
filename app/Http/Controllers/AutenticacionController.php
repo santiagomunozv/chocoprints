@@ -31,7 +31,6 @@ class AutenticacionController extends Controller
         if (Auth::attempt($credenciales) && AuthService::setSessionModels()) {
             return redirect("/");
         }
-        dd('holaa');
         self::endSessionObjects();
         return back()->withErrors(['authFailed' => trans('auth.failed')]);
     }
